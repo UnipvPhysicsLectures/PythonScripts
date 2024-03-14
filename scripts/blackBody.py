@@ -73,7 +73,7 @@ for T in v_T:
                           title="Energy (eV)",
                       ),
                       yaxis2=dict(tickfont=dict(size=20),
-                                  title="Intensity",
+                                  title="Spectral Energy Density",
                                   showticklabels=False))
     fig.update_xaxes(mirror=True,
                      ticks='outside',
