@@ -124,5 +124,5 @@ sliders = [
 
 fig.update_layout(sliders=sliders)
 
-fig.write_html("./blackBody.html")
+fig.write_html("../html/blackBody.html")
 # fig.show()
