@@ -63,7 +63,7 @@ for T in v_T:
                                  ticktext=[str(500 * i) for i in range(1, 12)],
                                  title="Wavelength (nm)"),
                       yaxis=dict(tickfont=dict(size=20),
-                                 title="Intensity",
+                                 title="Spectral Energy Density",
                                  showticklabels=False),
                       xaxis2=dict(
                           tickfont=dict(size=20),
