@@ -198,6 +198,7 @@ def compute_wavefunction(g,x,m_ck,i_k,i_band,n_max,n_k):
 # --------------------------------- Solution ---------------------------------
 V = square(x,fill_fraction,2*V_max)
 # V = harmonic(x,k_spring)
+# V = 2*V_max*np.cos(g*x)
 V_fft = fft_V(V,n_max)
 rV = ifft_V(V_fft)
 v_k = np.linspace(-g/2,g/2,n_k)
@@ -250,7 +251,7 @@ for i_k, k in enumerate(v_k):
         fig.add_trace(go.Scatter(visible=False,
                                 mode='markers',
                                 marker=dict(color=colors[i], size=10),
-                                name=r"$\large \mathrm{i_{k}=" + str(i_k) + "}$",
+                                name="i_k=" + str(i_k),
                                 x=[k/g],
                                 y=[np.real(m_E[i_k,i])]),
                     row=1,
@@ -266,14 +267,14 @@ for i_k, k in enumerate(v_k):
 
     fig.add_trace(go.Scatter(visible=False,
                         marker=dict(color=colors[0], size=10),
-                        name=r"$\large \mathrm{\psi_{val}(x)}$",
+                        name="Valence P(x)",
                         x=(tile_x/a-1/2),
                         y=np.abs(tile_val)**2),
             row=1,
             col=2)
     fig.add_trace(go.Scatter(visible=False,
                         marker=dict(color=colors[1], size=10),
-                        name=r"$\large \mathrm{\psi_{cond}(x)}$",
+                        name="Conduction P(x)",
                         x=(tile_x/a-1/2),
                         y=np.abs(tile_cond)**2),
             row=1,
@@ -359,4 +360,4 @@ sliders = [
 
 fig.update_layout(sliders=sliders)
 fig.write_html("../html/centralEquation.html")
-# fig.show()
+fig.show()
